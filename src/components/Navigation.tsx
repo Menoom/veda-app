@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { User, Settings, History, Compass, Menu, X, BookOpen } from 'lucide-react';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  User,
+  Settings,
+  History,
+  Compass,
+  Menu,
+  X,
+  BookOpen,
+} from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { path: '/', name: 'Home', icon: BookOpen },
-    { path: '/profile', name: 'Profile', icon: User },
-    { path: '/settings', name: 'Settings', icon: Settings },
-    { path: '/history', name: 'History', icon: History },
-    { path: '/explore', name: 'Explore Paths', icon: Compass },
+    { path: "/", name: "Home", icon: BookOpen },
+    { path: "/profile", name: "Profile", icon: User },
+    { path: "/settings", name: "Settings", icon: Settings },
+    { path: "/history", name: "History", icon: History },
+    { path: "/explore", name: "Explore Paths", icon: Compass },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -26,7 +34,7 @@ const Navigation = () => {
               <BookOpen className="w-5 h-5 text-white" />
             </div>
             <span className="font-serif font-bold text-2xl text-primary group-hover:text-gold-600 transition-colors">
-              Veda
+              Veda-Anth
             </span>
           </Link>
 
@@ -40,8 +48,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'bg-gold-100 text-gold-700 shadow-md'
-                      : 'text-primary hover:text-gold-600 hover:bg-gold-50'
+                      ? "bg-gold-100 text-gold-700 shadow-md"
+                      : "text-primary hover:text-gold-600 hover:bg-gold-50"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -57,7 +65,11 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary hover:text-gold-600 transition-colors"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -76,8 +88,8 @@ const Navigation = () => {
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center space-x-2 px-3 py-3 rounded-lg transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'bg-gold-100 text-gold-700'
-                      : 'text-primary hover:text-gold-600 hover:bg-gold-50'
+                      ? "bg-gold-100 text-gold-700"
+                      : "text-primary hover:text-gold-600 hover:bg-gold-50"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
